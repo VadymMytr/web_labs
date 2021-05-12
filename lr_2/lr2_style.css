@@ -1,0 +1,127 @@
+html,
+table,
+body,
+label,
+.flex_container {
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.block1, .block3, .flex_block1, .flex_block3 {
+    background-color: blue;
+    height: 15%;
+    text-align: center;
+}
+
+.block1 label, .flex_block1 label {
+    color: white;
+    font-family: Verdana, sans-serif;
+}
+
+.block1:hover, .flex_block1:hover {
+    transform: scale(0.5);
+}
+
+.block2, .flex_block2 {
+    width: 15%;
+    text-align: center;
+    background-color: orange;
+}
+
+.block2 label, .flex_block2 label {
+    color: black;
+    font-size: 20px;
+    font-style: italic;
+    font-family: "Times New Roman", serif;
+}
+
+.block2:hover, .flex_block2:hover {
+    background-color: yellow;
+    transform: rotate(180deg);
+}
+
+.block3 label, .flex_block3 label {
+    color: white;
+    font-family: "Courier New", sans-serif;
+}
+
+.block3:hover, .flex_block3:hover {
+    transform: scale(5);
+}
+
+.block4, .flex_block4 {
+    background-color: white;
+    text-align: center;
+    height: 85%;
+}
+
+.block4 ol, .flex_block4 ol {
+    text-align: left;
+}
+
+.block4:hover, .flex_block4:hover {
+    background-color: cornflowerblue;
+    text-align: left;
+}
+
+.block5, .flex_block5 {
+    height: 15%;
+    text-align: center;
+    background-color: orange;
+}
+
+.block5 label, .flex_block5 label {
+    color: black;
+    font-size: 40px;
+    font-family: "MV Boli", sans-serif;
+}
+
+.block5 label:hover, .block5 label:hover {
+    font-size: 100px;
+}
+
+.very_span {
+    font-size: 25px;
+    font-style: italic;
+    color: red;
+}
+
+.flex_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex_center_container {
+    display: flex;
+    height: 70%;
+    flex-direction: row;
+}
+
+.flex_block1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex_block2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex_center_right_container {
+    display: flex;
+    width: 85%;
+    flex-direction: column;
+}
+
+.flex_block4 {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex_block5 {
+    display: flex;
+    flex-direction: row;
+}
