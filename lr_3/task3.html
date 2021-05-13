@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+    <link rel="stylesheet" href="lab3_style.css">
+</head>
+<body>
+<img id="move_target" onmouseover="stopMoving()" src="target_image.png"/>
+</body>
+
+<script>
+    let isMoving = true
+
+    function stopMoving() {
+        isMoving = false
+    }
+
+    window.onload = function () {
+        const target = document.getElementById("move_target");
+
+        const screen_width = window.innerWidth - 50;
+        const screen_height = window.innerHeight - 50;
+
+        const targetPosition = {top: 0, left: 0};
+        const moveDirections = {left: 1, top: 2, right: 3, bot: 4};
+
+        let currentDistance = 0; //using for check if needed distance is moved
+
+        const interval = 15; //+- 60 frames per second
+
+        let direction;  //move direction
+        const distance = 25;   //one move distance
+
+        setInterval(function () {
+            if (!isMoving) return
+
+            currentDistance++;
+            if (currentDistance > distance) {
+                currentDistance = 0;
+                direction = Math.floor((Math.random() * 4) + 1); // pick random direction
+            }
+
+            moveTarget(direction)
+        }, interval)
+
+        function moveTarget(direction) {
+            switch (direction) {
+                case moveDirections.left: {
+                    if (targetPosition.left < screen_width) {
+                        targetPosition.left++;
+                        target.style.left = targetPosition.left + "px";
+                    }
+                    break;
+                }
+                case moveDirections.top: {
+                    if (targetPosition.top < screen_height) {
+                        targetPosition.top++;
+                        target.style.top = targetPosition.top + "px";
+                    }
+                    break;
+                }
+
+                case moveDirections.right: {
+                    if (targetPosition.left > 0) {
+                        targetPosition.left--;
+                        target.style.left = targetPosition.left + "px";
+                    }
+                    break;
+                }
+
+                case moveDirections.bot: {
+                    if (targetPosition.top > 0) {
+                        targetPosition.top--;
+                        target.style.top = targetPosition.top + "px";
+                    }
+                    break;
+                }
+            }
+        }
+    }
+</script>
+</html>
+

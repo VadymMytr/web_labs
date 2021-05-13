@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lab3_style.css">
+</head>
+<body>
+<form class="input_form" novalidate onsubmit="return formOnSubmit()">
+    <div class="mb-3">
+        <div>
+            <label for="your_name_label">Введіть Ваше ім'я:</label>
+            <input type="text" class="form-control" id="your_name_label" placeholder="Наприклад, Вадим" value=""
+                   required pattern="[а-яґєіїА-ЯҐЄІЇ]+">
+            <div class="invalid-feedback">Ім’я та прізвище повинно містити лише літери.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="your_surname_label">Введіть Ваше прізвище:</label>
+        <input type="text" class="form-control" id="your_surname_label" placeholder="Наприклад, Митренко" value=""
+               required pattern="[а-яґєіїА-ЯҐЄІЇ]+">
+        <div class="invalid-feedback">Ім’я та прізвище повинно містити лише літери.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="your_country_label">Введіть країну проживання:</label>
+        <input type="text" class="form-control" id="your_country_label" placeholder="Наприклад, Україна" value=""
+               required pattern="[а-яґєіїА-ЯҐЄІЇ]+">
+        <div class="invalid-feedback">Назва країни має бути не пустою.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="your_city_label">Введіть місто проживання:</label>
+        <input type="text" class="form-control" id="your_city_label" placeholder="Наприклад, Черкаси" value="" required
+               pattern="[а-яґєіїА-ЯҐЄІЇ]+">
+        <div class="invalid-feedback">Назва міста має бути не пустою.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="your_home_address_label">Введіть адресу проживання:</label>
+        <input type="text" class="form-control" id="your_home_address_label"
+               placeholder="Наприклад, вул. Героїв Майдану" value="" required pattern="[а-яґєіїА-ЯҐЄІЇ]+">
+        <div class="invalid-feedback">Адреса проживання має бути не пустою.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="index_label">Введіть Ваш поштовий індекс:</label>
+        <input type="text" class="form-control" id="index_label" placeholder="12345" value="" required maxlength="5"
+               pattern="[0-9]{5}">
+        <div class="invalid-feedback">Індекс має складатися з 5 цифр.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="email_label">Введіть Ваш E-mail:</label>
+        <input type="email" class="form-control" id="email_label" placeholder="Наприклад, test@gmail.com" value=""
+               required>
+        <div class="invalid-feedback">E-mail має містити символ @.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+    function formOnSubmit() {
+        return false
+    }
+
+    (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                const forms = document.getElementsByClassName('input_form');
+
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        }
+    )();
+</script>
+
+</body>
+</html>

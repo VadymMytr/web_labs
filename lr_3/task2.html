@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lab3_style.css">
+</head>
+<body>
+<div class="data_container">
+    <div>
+        <label for="input_label">Введіть рядок:</label>
+        <input type="text" id="input_label" value="" required pattern="[а-яА-Яa-zA-Z]+">
+    </div>
+
+    <button type="button" id="split_button" onclick="printUl_Li()" class="btn btn-primary">Розбити!</button>
+
+    <div class="spited_container">
+        <label for="spited_string">Розбитий рядок:</label>
+        <ul id="spited_string"></ul>
+    </div>
+</div>
+<script>
+    function printUl_Li() {
+        //clear prev values
+        const target = document.getElementById('spited_string')
+        target.innerHTML = ''
+
+        let str = document.getElementById("input_label").value;
+
+        //append if length can't be divided by 2
+        if (str.length % 2 !== 0)
+            str += ("_")
+
+        //split by 2 elements
+        const splited = str.match(/.{2}/g);
+        splited.forEach(element => console.log(element))
+
+        splited.forEach(element => {
+            let li = document.createElement("li")
+            li.innerText = element
+
+            target.appendChild(li);
+        })
+    }
+</script>
+</body>
+</html>
