@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="form_style.css">
+</head>
+
+<body>
+    <h1>Input details information about you.</h1>
+    <form class="input_form" novalidate action="links.php" method="POST">
+        <h2>Contact information</h2>
+        <div class="mb-3">
+            <div class="col-md-6">
+                <label for="your_name_label">Input your name:</label>
+                <input type="text" class="form-control" id="your_name_label" placeholder="For example, Vadym" value=""
+                    name="name" required pattern="[a-zA-Z]+">
+                <div class="invalid-feedback">Name and surname must contains only letters and not be empty.</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="col-md-6">
+                <label for="your_surname_label">Input your surname:</label>
+                <input type="text" class="form-control" id="your_surname_label" placeholder="For example, Mytrenko"
+                    value="" name="surname" required pattern="[a-zA-Z]+">
+                <div class="invalid-feedback">Name and surname must contains only letters and not be empty.</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="col-md-6">
+                <label for="your_phone_label">Input your phone number:</label>
+                <input type="tel" class="form-control" id="your_phone_label" placeholder="For example, 66-92-74"
+                    value="" name="phone" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                <div class="invalid-feedback">Phone number must be in format 00-00-00.</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="col-md-6">
+                <label for="email_label">Input your E-mail:</label>
+                <input type="email" class="form-control" id="email_label" placeholder="For example, test@gmail.com"
+                    value="" name="email" required>
+                <div class="invalid-feedback">E-mail must contains symbol @.</div>
+            </div>
+        </div>
+
+        <h2>Educational information</h2>
+        <div class="mb-3">
+            <div class="col-md-6">
+                <label for="your_university_label">Input your university name:</label>
+                <input type="text" class="form-control" id="your_university_label" placeholder="For example, CDU"
+                    value="" name="university" required pattern="[a-zA-Z]+">
+                <div class="invalid-feedback">University name must contains only letters and not be empty.</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="col-md-6">
+                <label for="your_faculty_label">Input your faculty name:</label>
+                <input type="text" class="form-control" id="your_faculty_label" placeholder="For example, FOTIUS"
+                    value="" name="faculty" required pattern="[a-zA-Z]+">
+                <div class="invalid-feedback">Faculty name must contains only letters and not be empty.</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="col-md-2">
+                <label for="your_course_label">Input your course number:</label>
+                <input type="text" class="form-control" id="your_course_label" placeholder="For example, 1" value=""
+                    name="course" required pattern="[1-6]{1}" maxlength="1">
+                <div class="invalid-feedback">Course number must be in range from 1 to 6.</div>
+            </div>
+        </div>
+
+        <h2>Hobbys</h2>
+        <div class="mb-3">
+            <div class="col-md-2">
+                <label for="your_hobbys_label">Input your course number:</label>
+                <textarea type="text" class="form-control" id="your_hobbys_label" placeholder="For example, cycling"
+                    value="" name="hobbys" required pattern="\W+" rows="3"></textarea>
+                <div class="invalid-feedback">Hobbys must not be empty.</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</body>
+
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            const forms = document.getElementsByClassName('input_form');
+
+            Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    }
+    )();
+</script>
+
+</html>
